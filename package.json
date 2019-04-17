@@ -1,5 +1,6 @@
 {
-  "name": "react-use-form",
+  "name": "@kui/react-form-hooks",
+  "private": false,
   "version": "1.0.0",
   "description": "react form validate library",
   "esnext": "pkg/dist-src/index.js",

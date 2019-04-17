@@ -1,6 +1,5 @@
 {
-  "name": "@kui/react-form-hooks",
-  "private": false,
+  "name": "react-use-form",
   "version": "1.0.0",
   "description": "react form validate library",
   "esnext": "pkg/dist-src/index.js",
@@ -14,8 +13,9 @@
   "keywords": [
     "react", "form", "validate", "hooks"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "kai_lin",
+  "email": "449288972@qq.com",
+  "license": "MIT",
   "@pika/pack": {
     "pipeline": [
       [

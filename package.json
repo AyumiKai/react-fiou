@@ -1,7 +1,7 @@
 {
-  "name": "reactUseForm",
+  "name": "react-use-form",
   "version": "1.0.0",
-  "description": "",
+  "description": "react form validate library",
   "esnext": "pkg/dist-src/index.js",
   "main": "pkg/dist-node/index.js",
   "module": "pkg/dist-web/index.js",

@@ -1,0 +1,54 @@
+{
+  "name": "reactUseForm",
+  "version": "1.0.0",
+  "description": "",
+  "esnext": "pkg/dist-src/index.js",
+  "main": "pkg/dist-node/index.js",
+  "module": "pkg/dist-web/index.js",
+  "types": "pkg/dist-types/index.d.ts",
+  "scripts": {
+    "build": "pack build",
+    "publish": "pack publish"
+  },
+  "keywords": [
+    "react", "form", "validate", "hooks"
+  ],
+  "author": "",
+  "license": "ISC",
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@pika/pack": "^0.3.7",
+    "@pika/plugin-build-node": "^0.3.15",
+    "@pika/plugin-build-types": "^0.3.16",
+    "@pika/plugin-build-web": "^0.3.15",
+    "@pika/plugin-standard-pkg": "^0.3.15",
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hook-form": "^2.1.17",
+    "rollup": "^1.10.0",
+    "rollup-plugin-typescript2": "^0.20.1",
+    "typescript": "^3.4.3"
+  }
+}

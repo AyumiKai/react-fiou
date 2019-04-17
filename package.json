@@ -16,6 +16,7 @@
   "author": "kai_lin",
   "email": "449288972@qq.com",
   "license": "MIT",
+  "repository": "https://github.com/AyumiKai/react-fiou",
   "@pika/pack": {
     "pipeline": [
       [

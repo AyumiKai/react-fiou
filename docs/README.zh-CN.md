@@ -7,14 +7,14 @@
 ![NpmLicense](https://img.shields.io/npm/l/react-fiou.svg)
 [![npm](https://badgen.net/bundlephobia/minzip/react-fiou)](https://badgen.net/bundlephobia/minzip/react-fiou)
 
-**React Fiou** - form validate into React Hooks.
+**React Fiou** - 基于hooks的表单校验库.
 Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 
-[examples](https://ayumikai.github.io/react-fiou/)
+[示例](https://ayumikai.github.io/react-fiou/)
 
 # 特性
 
-- 轻松的编写表单检验逻辑
+- 轻松编写表单检验逻辑
 - 超小体积没有任何依赖
 
 # 安装

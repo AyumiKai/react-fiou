@@ -19,7 +19,7 @@ Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 
 # 安装
 
-> 温馨提示: 由于本库用到了Hooks的特性要求React的版本不能低于16.8+，所以不兼容往下的版本
+> 温馨提示: 由于本库用到了Hooks的特性要求React的版本不能低于16.8+，所以不兼容16.8以下的版本
 
 ### 使用npm安装
 

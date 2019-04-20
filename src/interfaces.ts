@@ -4,13 +4,12 @@ export interface IFieldMeta {
   validate: Function;
   validating: boolean;
   defaultValue?: string;
-  dirty: boolean;
 }
 
 export interface IField {
   name: string;
   value: string;
-  onChange: Function;
+  onChange: (e: React.BaseSyntheticEvent) => void;
   meta: IFieldMeta;
   onReset: Function;
   setErrors: Function;

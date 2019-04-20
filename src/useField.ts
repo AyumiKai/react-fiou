@@ -18,7 +18,6 @@ const useField = (
   let [errors, setErrors] = useState<Array<string>>([]);
   let [pristine, setPristine] = useState<boolean>(!defaultValue);
   let [validating, setValidating] = useState<boolean>(false);
-  let [dirty, setDirty] = useState<boolean>(false);
   let validateCounter = useRef<number>(0);
 
   const validate = async () => {
@@ -40,17 +39,17 @@ const useField = (
   let field: IField = {
     name,
     value,
-    onChange: e => {
+    onChange: (e: React.BaseSyntheticEvent) => {
       if (pristine) {
         setPristine(false);
       }
       setValue(e.target.value);
     },
     onReset: () => {
-        setDirty(true);
-        setErrors([]);
-        setValue(defaultValue);
-      },
+      setPristine(true);
+      setErrors([]);
+      setValue(defaultValue);
+    },
     setErrors,
     setValue,
     meta: {
@@ -58,17 +57,12 @@ const useField = (
       pristine,
       validate,
       validating,
-      defaultValue,
-      dirty
+      defaultValue
     }
   };
   form.addField(field);
-
-   useEffect(() => {
+  useEffect(() => {
     if (pristine) return;
-    if (dirty) {
-      return setDirty(false);
-    }
     form.validateFields(fieldsToValidateOnChange);
   }, [value]);
 

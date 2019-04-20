@@ -1,4 +1,3 @@
-<div align="right">English | <a href="https://github.com/AyumiKai/react-fiou/blob/master/docs/README.zh-CN.md">简体中文</a></div>
 <h1 align="center">
   React-fiou
 </h1>
@@ -13,22 +12,22 @@ Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 
 [examples](https://ayumikai.github.io/react-fiou/)
 
-# features
+# 特性
 
-- Easily write form validation logic
-- Super tiny size without other any dependency
+- 轻松的编写表单检验逻辑
+- 超小体积没有任何依赖
 
-# Install
+# 安装
 
-> Note: React 16.8+ is required for Hooks.
+> 温馨提示: 由于本库用到了Hooks的特性要求React的版本不能低于16.8+，所以不兼容往下的版本
 
-### With npm
+### 使用npm安装
 
 ```sh
 npm i --save react-fiou
 ```
 
-### Or with yarn
+### 使用yarn安装
 
 ```sh
 yarn add react-fiou

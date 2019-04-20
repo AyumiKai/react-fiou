@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { IField, IForm } from './interfaces';
 
-const useForm = ({ onSubmit }) => {
+type StringOrArray = string | Array<string>;
+
+const useForm = ({ onSubmit }: { onSubmit: Function }) => {
   let [submitted, setSubmitted] = useState<boolean>(false);
   let [submitting, setSubmitting] = useState<boolean>(false);
   let fields: Array<IField> = [];
 
-  const validateFields = async fieldNames => {
+  const validateFields = async (fieldNames: StringOrArray) => {
     let fieldsToValidate;
     if (Array.isArray(fieldNames)) {
       fieldsToValidate = fields.filter(field =>

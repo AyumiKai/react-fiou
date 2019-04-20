@@ -1,6 +1,6 @@
 {
-  "name": "react-use-form",
-  "version": "1.0.0",
+  "name": "react-fiou",
+  "version": "1.0.1",
   "description": "react form validate library",
   "esnext": "pkg/dist-src/index.js",
   "main": "pkg/dist-node/index.js",

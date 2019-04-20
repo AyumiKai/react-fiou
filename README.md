@@ -11,7 +11,6 @@ Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 
 [basic example](https://stackblitz.com/edit/react-fiou-quick-start?file=index.js)
 
-
 # Install
 
 > Note: React 16.8+ is required for Hooks.
@@ -19,7 +18,7 @@ Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 ### With npm
 
 ```sh
-npm i react-fiou
+npm i --save react-fiou
 ```
 
 ### Or with yarn

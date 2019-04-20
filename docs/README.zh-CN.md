@@ -14,7 +14,7 @@ Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 
 # 特性
 
-- 轻松编写表单检验逻辑
+- 轻松编写表单检验逻辑
 - 超小体积没有任何依赖
 
 # 安装

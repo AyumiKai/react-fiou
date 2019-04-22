@@ -1,5 +1,5 @@
 ```js
-import { useField, useForm } from '../../../src/index';
+import { useField, useForm } from 'react-fiou';
 import * as React from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';

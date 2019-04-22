@@ -1,20 +1,31 @@
 ```js
-import { useField, useForm } from 'react-fiou';
+import { useField, useForm } from '../../../src/index';
 import * as React from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import './index.css';
+
+const sleep = async(time: number) => {
+  return new Promise((resolve: Function) => {
+    setTimeout(resolve, time);
+  });
+}
 
 const Field = ({
   label,
   name,
   value,
-  type = "text",
   onChange,
   meta: {
     pristine,
     errors,
     validating,
+    validate
   },
   formSubmitted,
   ...other
@@ -29,25 +40,34 @@ const Field = ({
 }): JSX.Element => {
   const showErrors = (!pristine || formSubmitted) && !!errors.length;
   return (
-    <Grid item xs={12}>
-      <Grid item xs={3}>
-        <TextField
-          label={label}
-          value={value}
-          name={name}
-          onChange={onChange}
-          type={type}
-          margin="normal" 
-        />
-      </Grid>
-      {showErrors && errors.map((errorMsg: string) => <Grid item xs={3} key={errorMsg}>{errorMsg}</Grid>)}
-    </Grid>
+    <FormControl className="field" error={showErrors}>
+      <InputLabel htmlFor={name}>{label}</InputLabel>
+      <Input
+        id={name}
+        value={value}
+        onChange={onChange}
+        endAdornment={
+          <InputAdornment position="end">
+            {validating && (
+              <div className="loading">
+              </div>
+            )}
+          </InputAdornment>
+        }
+        {...other}
+      />
+      <FormHelperText component="div">
+        {showErrors &&
+          errors.map((errorMsg: any) => <div key={errorMsg}>{errorMsg}</div>)}
+      </FormHelperText>
+    </FormControl>
   );
 };
 
 const Basic = (props: any) => {
   const form = useForm({
-    onSubmit: (formData: any, isValid: boolean) => {
+    onSubmit: async (formData: any, isValid: boolean) => {
+      await sleep(2000);
       if (!isValid) return;
       alert(JSON.stringify(formData));
     }
@@ -56,8 +76,10 @@ const Basic = (props: any) => {
   const usernameField = useField("username", form, {
     defaultValue: "",
     validations: [
-      (formData: any) =>
-        formData.username.length < 6 && "Username must be at least 6 characters"
+      async (formData: any) => {
+        await sleep(2000)
+        return formData.username.length < 6 && "Username must be at least 6 characters"
+      }
     ],
     fieldsToValidateOnChange: ["username"]
   });
@@ -83,7 +105,7 @@ const Basic = (props: any) => {
   const requiredFields = [usernameField, passWordField, confirmPassWordField];
   return (
     <div>
-      <Grid spacing={24} container>
+      <div className="container">
         <Field
           {...usernameField}
           formSubmitted={form.submitted}
@@ -101,22 +123,24 @@ const Basic = (props: any) => {
           label="confirmPassword"
           type="password"
         />
-        <Grid item xs={3}>
-           <Button
-            variant="contained" 
-            color="primary"
-            disabled={
-              !form.isValid() ||
-              form.submitting ||
-              requiredFields.some(f => f.meta.pristine)
-            }
-            onClick={form.onSubmit}
-          >Submit</Button>
+        <Grid container spacing={24}>
+          <Grid item xs={6}>
+            <Button
+              variant="contained" 
+              color="primary"
+              disabled={
+                !form.isValid() ||
+                form.submitting ||
+                requiredFields.some(f => f.meta.pristine)
+              }
+              onClick={form.onSubmit}
+            >Submit</Button>
+          </Grid>
+          <Grid item xs={6}>
+            <Button onClick={form.onReset} variant="contained">reset</Button>
+          </Grid>
         </Grid>
-        <Grid item xs={3}>
-          <Button onClick={form.onReset} variant="contained">reset</Button>
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 };

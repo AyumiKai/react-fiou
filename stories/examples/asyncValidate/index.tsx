@@ -7,7 +7,6 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
-// import LoadingIcon from "@material-ui/icons/Cached";
 import './index.css';
 
 const sleep = async(time: number) => {

@@ -1,12 +1,9 @@
-import { useField, useForm } from '../../../src/index';
+```js
+import { useField, useForm } from 'react-fiou';
 import * as React from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import FormControl from "@material-ui/core/FormControl";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-import './index.css';
+import TextField from '@material-ui/core/TextField';
 
 const Field = ({
   label,
@@ -32,19 +29,19 @@ const Field = ({
 }): JSX.Element => {
   const showErrors = (!pristine || formSubmitted) && !!errors.length;
   return (
-     <FormControl className="field" error={showErrors}>
-      <InputLabel htmlFor={name}>{label}</InputLabel>
-      <Input
-        id={name}
-        value={value}
-        onChange={onChange}
-        {...other}
-      />
-      <FormHelperText component="div">
-        {showErrors &&
-          errors.map((errorMsg: any) => <div key={errorMsg}>{errorMsg}</div>)}
-      </FormHelperText>
-    </FormControl>
+    <Grid item xs={12}>
+      <Grid item xs={3}>
+        <TextField
+          label={label}
+          value={value}
+          name={name}
+          onChange={onChange}
+          type={type}
+          margin="normal" 
+        />
+      </Grid>
+      {showErrors && errors.map((errorMsg: string) => <Grid item xs={3} key={errorMsg}>{errorMsg}</Grid>)}
+    </Grid>
   );
 };
 
@@ -85,26 +82,26 @@ const Basic = (props: any) => {
 
   const requiredFields = [usernameField, passWordField, confirmPassWordField];
   return (
-    <div className="container">
-      <Field
-        {...usernameField}
-        formSubmitted={form.submitted}
-        label="username"
-      />
-      <Field
-        {...passWordField}
-        formSubmitted={form.submitted}
-        label="password"
-        type="password"
-      />
-      <Field
-        {...confirmPassWordField}
-        formSubmitted={form.submitted}
-        label="confirmPassword"
-        type="password"
-      />
+    <div>
       <Grid spacing={24} container>
-        <Grid item xs={6}>
+        <Field
+          {...usernameField}
+          formSubmitted={form.submitted}
+          label="username"
+        />
+        <Field
+          {...passWordField}
+          formSubmitted={form.submitted}
+          label="password"
+          type="password"
+        />
+        <Field
+          {...confirmPassWordField}
+          formSubmitted={form.submitted}
+          label="confirmPassword"
+          type="password"
+        />
+        <Grid item xs={3}>
            <Button
             variant="contained" 
             color="primary"
@@ -116,7 +113,7 @@ const Basic = (props: any) => {
             onClick={form.onSubmit}
           >Submit</Button>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={3}>
           <Button onClick={form.onReset} variant="contained">reset</Button>
         </Grid>
       </Grid>
@@ -125,3 +122,5 @@ const Basic = (props: any) => {
 };
 
 export default Basic;
+```
+

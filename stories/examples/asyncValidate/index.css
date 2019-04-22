@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 40%;
+}
+
+.loading{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  border:15px solid rgba(0,0,0,0.1);
+  border-top-color:rgba(0,0,0,0.3);
+  box-sizing:border-box;
+  position:absolute;
+  right:5%;
+  top: 25%;
+  margin-top:-10px;
+  margin-left:-10px;
+  animation:loading 1.2s linear infinite;
+  -webkit-animation:loading 1.2s linear infinite;
+}
+@keyframes loading{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+@-webkit-keyframes loading{
+  0%{-webkit-transform:rotate(0deg)}
+  100%{-webkit-transform:rotate(360deg)}
+}
